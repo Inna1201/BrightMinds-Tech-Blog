@@ -1,0 +1,15 @@
+ {{!-- http://localhost:3001/ --}}
+
+ {{#each blogs as |blog| }}
+<div>
+  <h2>
+    <a href="/post/{{blog.id}}">{{blog.title}}</a>
+  </h2>  
+</div>
+<div>
+  <h4>Posted by: {{blog.user.username}} on {{blog.createdAt}}</h4>
+</div>
+<div>
+   <p> {{blog.content}}</p> 
+</div>
+{{/each}}

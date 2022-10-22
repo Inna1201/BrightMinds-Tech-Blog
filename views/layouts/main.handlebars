@@ -4,17 +4,44 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Fund My Project!</title>
-  <link rel="stylesheet" href="/css/jass.css">
   <link rel="stylesheet" href="/css/style.css">
 </head>
 
 <body>
-  
-  <!-- Render script for logged in users only -->
-  {{#if logged_in}}
-  <script src="/js/logout.js"></script>
-  {{/if}}
+
+   <div class="flex-column justify-space-around">
+    <header class="display-flex justify-space-between align-center p-2">
+      <h1>
+        TECH BLOG
+      </h1>
+    </header>
+      <main class="container container-fluid mt-5">
+        {{#if logged_in}}
+            <button class = "button" id="home-btn"><a class="anchor" href="/">Home</a></button>
+            <button class="button" id="dash-btn"><a class="anchor" href="/dashboard" class = "buttons">Dashboard</a></button>
+            <button id="logout-btn">Logout</button>
+            {{else}}
+            <button class = "button" id="home-btn"><a class="anchor" href="/">Home</a></button>
+            <button class="button" id="login-btn"><a class="anchor" href="/login">Login/Signup</a></button>
+            <button class="button" id="dash-btn"><a class="anchor" href="/dashboard" class = "buttons">Dashboard</a></button>
+            
+            {{/if}}
+        {{!-- </div> --}}
+        <section>
+            <p></p>
+            <div class="Container">
+                <div class="box">
+                    {{{ body }}}
+                </div>
+            </div>
+        </nav>
+
+        </section>
+    </main>
+            {{#if logged_in}}
+            <script src='/js/logout.js'></script>
+            {{/if}}
+    
 </body>
 
 </html>
