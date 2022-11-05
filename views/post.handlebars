@@ -1,10 +1,53 @@
-<p>one post</p>
+<br>
 <div>
-  <h2>{{blog.title}}</h2>  
+    <h2 id="title">{{blog.title}}</h2>
 </div>
 <div>
-  <h4>Posted by: {{blog.user.username}} on {{blog.createdAt}}</h4>
+    <h4 id="postDate">Posted by: {{blog.user.username}} on {{blog.createdAt}}</h4>
 </div>
 <div>
-   <p> {{blog.content}}</p> 
+    <p id="postContent"> {{blog.content}}</p>
 </div>
+<br>
+<div>
+
+    <section class="card">
+        <div class="card-header">
+            <h4 id="comment">Comments</h4>
+        </div>
+        <br>
+        <div class="card-body">
+            {{#each blog.Comments as |comment| }}
+            <div>
+                <h4 id="postDate">Posted by: {{comment.user.username}} on {{comment.createdAt}}</h4>
+                <p id="allComments">
+                    {{comment.body}}
+                </p>
+            </div>
+            {{/each}}
+        </div>
+    </section>
+
+</div>
+<br>
+<div>
+    <h4 id="comment">Add comment:</h4>
+    <br>
+    <form class="form comment-form" id="cform">
+        <div class="form-group">
+            <input type="hidden" id="blog-id" value="{{blog.id}}" />
+            <label id="comm-body" for="name-signup"></label>
+            <textarea style="overflow:auto;resize:none" rows="10" cols="100" class="form-input" type="text" id="comment-body"></textarea>
+        </div>
+        <br>
+
+        <div id="passwordLogin" class="form-group">
+            <button class="btn btn-primary" type="submit">Save</button>
+
+
+        </div>
+    </form>
+</div>
+
+
+<script src="/js/comment.js"></script>

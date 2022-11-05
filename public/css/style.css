@@ -1,0 +1,89 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  html {
+    height: 100%;
+  }
+  
+  body {
+    min-height: 100%;
+    line-height: 1;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #6bd5c250;
+  }
+
+  h1 {
+    font-family: 'Staatliches', cursive;
+    font-size: 50px;
+    color: #4598e1;
+    text-align: center;
+}
+
+h2,
+h3 {
+    font-family: 'Staatliches', cursive;
+    font-weight: bolder;
+}
+
+h4 {
+    color: #4598e1;
+}
+
+#comment {
+    font-family: 'Staatliches', cursive;
+}
+
+a,
+#title {
+    color: rgb(209, 124, 140);
+    text-decoration: none;
+  }
+
+.button,
+.btn-create,
+.btn-primary,
+.btn-update,
+.btn-delete {
+    background-color: rgb(22, 24, 20);
+    width: 140px;
+    height: 40px;
+    border-radius: 12px;
+    color: rgb(209, 124, 140);
+}
+
+#postDate {
+    font-size: small;
+    font-style: italic;
+    color: #4598e1;
+}
+
+#postContent,
+#allComments {
+   font-size: large;
+   font-family:Georgia, 'Times New Roman', Times, serif;
+   font-weight: bolder;
+   color: rgb(88, 87, 87);
+}
+
+#login,
+#signup,
+#newPost,
+#post-tit,
+#post-cont,
+#comm-body {
+    font-weight: bolder;
+}
+
+footer {
+    position: fixed; 
+    bottom: 0;
+    width: 100%;
+    height: 60px;
+}
+
+/* textarea {
+    resize: none;
+  } */

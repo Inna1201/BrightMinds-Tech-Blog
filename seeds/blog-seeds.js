@@ -3,22 +3,22 @@ const { Blog } = require('../models');
 const blogData = [
     {
        
-        title: "Blog1",
-        content: "smart thoughts",
+        title: "Best Apps For Production",
+        content: "Smart thoughts",
         userId: 1
 
     },
     {
         
-        title: "Blog2",
+        title: "Tech trends 2023",
         content: "smarter thoughts",
         userId: 2
 
     },
     {
         
-        title: "Blog3",
-        content: "the smartest thoughts",
+        title: "How to take good pictures with your camera.",
+        content: "some thoughts",
         userId: 3
 
     },

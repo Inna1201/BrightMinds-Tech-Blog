@@ -13,8 +13,7 @@ Comment.init(
     
   },
   {
-    sequelize,
-   
+    sequelize
   }
 );
 

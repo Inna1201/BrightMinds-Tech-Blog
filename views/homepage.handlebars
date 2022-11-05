@@ -2,14 +2,19 @@
 
  {{#each blogs as |blog| }}
 <div>
+  <br>
   <h2>
+    <br>
     <a href="/post/{{blog.id}}">{{blog.title}}</a>
   </h2>  
 </div>
 <div>
-  <h4>Posted by: {{blog.user.username}} on {{blog.createdAt}}</h4>
+  <h4>Posted by: {{blog.user.username}}</h4>
+  <p id="postDate"> on {{blog.createdAt}} </p>
 </div>
 <div>
-   <p> {{blog.content}}</p> 
+   <p id="postContent"> {{blog.content}}</p> 
 </div>
 {{/each}}
+
+

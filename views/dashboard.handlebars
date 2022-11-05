@@ -1,1 +1,18 @@
-<p>dashboard</p>
+<div>
+  <h3>Your Posts:</h3>
+</div>
+<br>
+{{#each blogs as |blog| }}
+<div>
+  <h2>
+   <a href="/dashboard/edit/{{blog.id}}">{{blog.title}}</a>
+  </h2>  
+</div>
+<div>
+  <h4 id="postDate">Created on {{blog.createdAt}}</h4>
+</div>
+{{/each}}
+
+<footer class="footer flex-row justify-center">
+    <button class="button" id="new-btn"><a class="anchor" href="/dashboard/newPost">Create New Post</a></button>
+  </footer>

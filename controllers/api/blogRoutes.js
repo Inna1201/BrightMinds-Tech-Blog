@@ -1,39 +1,57 @@
-// const router = require('express').Router();
-// const { Blog, Comment, User } = require('../../models/');
-// const withAuth = require('../../utils/auth');
+const router = require("express").Router();
+const { Blog } = require("../../models/");
+const withAuth = require("../../utils/auth");
 
-// router.get("/", async (req, res) => {
-//     try {
-//       const allBlogs = await User.findAll({
-//         //////////////////////////
+router.post("/", withAuth, async (req, res) => {
+  console.log("new post", req.body);
+  try {
+    const newBlog = await Blog.create({
+      ...req.body,
+      userId: req.session.user_id,
+    });
 
-//         })
-//       res.json(allBlogs);
-//     } catch (err) {
-//       res.status(500).json(err);
-//     }
-//   });
+    console.log("new post", newBlog);
+    res.json(newBlog);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
 
-//   router.get("/:id", async (req, res) => {
-//     try {
-//       const oneBlog = await Category.findByPk(req.params.id, {
-//         ////////////////////////////////
+router.put("/edit/:id", withAuth, async (req, res) => {
+  console.log("updated post", req.body);
+  try {
+    const updatedBlog = await Blog.update(
+      { ...req.body, userId: req.session.user_id },
+      {
+        where: {
+          id: req.params.id,
+        },
+      }
+    );
+    console.log("updated post", updatedBlog);
+    res.json(updatedBlog);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
 
-//       });
-//       res.json(oneBlog);
-//     } catch (err) {
-//       res.status(500).json(err);
-//     }
-//   });
+router.delete('/:id', withAuth, async (req, res) => {
+  try {
+    const blogData = await Blog.destroy({
+      where: {
+        id: req.params.id,
+      },
+    });
 
+    if (!blogData) {
+      res.status(404).json({ message: 'No post found with this id!' });
+      return;
+    }
 
+    res.status(200).json(blogData);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
 
-//   router.post('/', withAuth, async (req, res) => {
-//     try {
-//       const newBlog = await User.create(req.body);
-  
-//       res.json(newBlog);
-//     } catch (err) {
-//       res.status(500).json(err);
-//     }
-//   });
+module.exports = router;
